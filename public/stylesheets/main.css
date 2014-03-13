@@ -1,0 +1,45 @@
+.glyphicon-trash {
+    color: black;
+    margin-left: 8px;
+}
+
+.glyphicon-trash:hover, .glyphicon-trash:focus, .glyphicon-trash:active {
+    color: gray;
+}
+
+.center-red-text {
+    text-align: center;
+    color: darkred;
+    font-size: 26pt;
+}
+
+.btn-primary {
+    background-color: #900;
+    border-color: #a00;
+}
+
+.btn-primary:active, .btn-primary:focus, .btn-primary:hover {
+    background-color: #b00;
+    border-color: #a00;
+}
+
+.panel-title {
+    font-size: 27px;
+}
+
+.panel-title>a {
+    color: white;
+}
+
+.small-centered-form {
+    background-color: #eee;
+    border-radius: 15px;
+    margin: 0 auto;
+    max-width: 330px;
+    padding: 15px;
+}
+
+#cancel {
+  color: #400;
+}
+

@@ -1,0 +1,37 @@
+@(tasks: List[Task])
+
+@import helper.form
+
+@main("Display Tasks") {
+
+    <h1 class="center-red-text">You currently have following open Tasks</h1>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading" style="height:50px">
+                <h3 class="panel-title">
+                    Pending tasks to be completed
+                    <a class="btn btn-primary pull-right" href="/new">Create Task</a>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    @for(task <- tasks) {
+                        <li class="list-group-item">
+                            @form(routes.TaskController.delete(task.id)) {
+                                <input type="hidden" value="Delete"><span class="glyphicon glyphicon-trash pull-right" type="submit" value="delete"></span></input>
+                                <span class="badge pull-right">@task.endDate</span>
+                            }
+                            @task.description
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.glyphicon-trash').click(function() {
+            $(this).parent().submit();
+        });
+    </script>
+}

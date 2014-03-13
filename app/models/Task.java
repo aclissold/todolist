@@ -1,11 +1,12 @@
 package models;
 
-import java.util.*;
+import play.data.format.Formats;
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
 
-import play.db.ebean.*;
-import play.data.validation.Constraints.*;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class Task extends Model {
@@ -13,22 +14,17 @@ public class Task extends Model {
     @Id
     public Long id;
 
-    @Required
-    public String label;
+    @Constraints.Required
+    public String description;
+
+    public Date endDate;
 
     public static Finder<Long, Task> find = new Finder(
         Long.class, Task.class
     );
 
-    public static List<Task> all() {
-        return find.all();
-    }
-
-    public static void create(Task task) {
-        task.save();
-    }
-
     public static void delete(Long id) {
         find.ref(id).delete();
     }
+
 }
